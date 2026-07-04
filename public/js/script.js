@@ -28,7 +28,7 @@ marineLayer.addTo(map); // fond par défaut
 L.control.layers(
   { 'Vue Marine': marineLayer, 'Vue Standard OSM': osmLayer },
   null,
-  { position: 'bottomleft', collapsed: false }
+  { position: 'topleft', collapsed: false }
 ).addTo(map);
 
 let zoneLayer = null;
