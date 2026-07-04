@@ -8,12 +8,28 @@ const map = L.map('map', {
 
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
-// Fond de carte sombre type "carte marine" (CARTO Dark Matter, basé sur OSM)
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+// ---------- Fonds de carte ----------
+// Vue "Marine" : fond sombre stylisé (esthétique, mais simplifie les détails d'infrastructure)
+const marineLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   subdomains: 'abcd',
   maxZoom: 19
-}).addTo(map);
+});
+
+// Vue "Standard OSM" : rendu classique, affiche voies ferrées, pistes, chemins, tracés récents
+const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  subdomains: 'abc',
+  maxZoom: 19
+});
+
+marineLayer.addTo(map); // fond par défaut
+
+L.control.layers(
+  { 'Vue Marine': marineLayer, 'Vue Standard OSM': osmLayer },
+  null,
+  { position: 'bottomleft', collapsed: false }
+).addTo(map);
 
 let zoneLayer = null;
 let limitesLayer = null;

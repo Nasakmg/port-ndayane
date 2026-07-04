@@ -81,6 +81,20 @@ a { color: inherit; }
   filter: saturate(0.9) brightness(0.97);
 }
 
+/* Assure la lisibilité du texte du hero, que le fond soit sombre (Marine) ou clair (OSM) */
+.hero-scrim {
+  position: absolute;
+  z-index: 200;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(10, 42, 61, 0.75) 0%,
+    rgba(10, 42, 61, 0.25) 35%,
+    rgba(10, 42, 61, 0) 60%
+  );
+}
+
 .hero-overlay {
   position: absolute;
   z-index: 400;
@@ -194,6 +208,19 @@ a { color: inherit; }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(4px); }
 }
+
+/* Leaflet layer control (sélecteur Marine / OSM) */
+.leaflet-control-layers {
+  background: rgba(10, 42, 61, 0.85) !important;
+  color: var(--ivory);
+  border: 1px solid rgba(228, 217, 190, 0.3) !important;
+  border-radius: 2px !important;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  box-shadow: none !important;
+}
+.leaflet-control-layers-list label { margin-bottom: 0.3rem; }
+.leaflet-control-layers-base span { padding-left: 0.3rem; }
 
 /* Leaflet overrides for the nautical look */
 .leaflet-popup-content-wrapper {
