@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Port de Ndayane — Carte du projet</title>
+<meta name="description" content="Carte interactive du site du futur port en eau profonde de Ndayane, région de Thiès, Sénégal.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">NDAYANE<span class="brand-dot">·</span></div>
+  <nav class="nav">
+    <a href="#carte">Carte</a>
+    <a href="#projet">Le projet</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="carte">
+  <div id="map" role="img" aria-label="Carte interactive du site du port de Ndayane"></div>
+
+  <div class="hero-overlay">
+    <span class="coords">14°38′ N &nbsp;17°10′ O</span>
+    <h1 class="hero-title">PORT DE<br>NDAYANE</h1>
+    <p class="hero-tagline">Le futur port en eau profonde du Sénégal — région de Thiès, à 70&nbsp;km au sud de Dakar</p>
+
+    <div class="layer-toggle" role="group" aria-label="Couches de la carte">
+      <button type="button" class="layer-btn active" data-layer="zone">
+        <span class="swatch swatch-zone"></span> Zone du projet
+      </button>
+      <button type="button" class="layer-btn active" data-layer="limites">
+        <span class="swatch swatch-limites"></span> Limites régionales
+      </button>
+    </div>
+  </div>
+
+  <svg class="compass" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1"/>
+    <circle cx="50" cy="50" r="2" fill="currentColor"/>
+    <path d="M50 8 L54 46 L50 50 L46 46 Z" fill="currentColor"/>
+    <text x="50" y="20" text-anchor="middle" class="compass-n">N</text>
+  </svg>
+
+  <div class="scroll-cue">Défiler<span>↓</span></div>
+</section>
+
+<section class="about" id="projet">
+  <div class="about-inner">
+    <div class="about-header">
+      <span class="eyebrow">Le projet</span>
+      <h2>Un hub maritime pour l'Afrique de l'Ouest</h2>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="stat-value">840<span class="stat-unit">m</span></span>
+        <span class="stat-label">Quai — phase 1</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">5<span class="stat-unit">km</span></span>
+        <span class="stat-label">Chenal maritime dragué</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">1,2<span class="stat-unit">M EVP</span></span>
+        <span class="stat-label">Capacité annuelle visée</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">70<span class="stat-unit">km</span></span>
+        <span class="stat-label">Au sud de Dakar</span>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <p>Porté par l'opérateur émirati DP World en partenariat avec l'État du Sénégal, le port de Ndayane est conçu pour désengorger le port autonome de Dakar, aujourd'hui saturé, et transformer la Petite-Côte en nouvelle porte d'entrée logistique du pays.</p>
+      <p>La zone tracée sur la carte ci-dessus correspond à l'emprise du projet, à cheval sur les limites administratives des régions de Dakar et de Thiès. Une fois achevé, l'ouvrage pourra accueillir simultanément deux navires post-Panamax de plus de 330 mètres.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">NDAYANE<span class="brand-dot">·</span></div>
+    <p>Carte réalisée à partir de données géospatiales (QGIS / PostGIS) — projection WGS 84.</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
